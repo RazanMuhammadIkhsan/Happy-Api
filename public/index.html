@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy API - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="brand">Happy API</a>
+        <ul class="nav-menu">
+          <li>
+            <a href="#" class="nav-link active" data-category="all">Semua</a>
+          </li>
+          <li><a href="#" class="nav-link" data-category="anime">Anime</a></li>
+          <li><a href="#" class="nav-link" data-category="fun">Fun</a></li>
+          <li><a href="#" class="nav-link" data-category="game">Game</a></li>
+        </ul>
+        <button id="theme-toggle" aria-label="Ubah tema">
+          <i class="fa-solid fa-moon"></i> <span id="theme-text">Gelap</span>
+        </button>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container">
+        <h1>Selamat Datang di Happy API</h1>
+        <p>Kumpulan API sederhana dan menyenangkan untuk proyekmu.</p>
+      </div>
+    </header>
+
+    <main class="container" id="features-container"></main>
+
+    <footer class="footer">
+      <p>&copy; 2025 - Dibuat oleh Razan Muhammad Ikhsan</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
