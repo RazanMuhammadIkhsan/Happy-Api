@@ -8,38 +8,46 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static('public'));
 
+// --- Logika Pemuatan Rute Otomatis ---
 const endpoints = [];
-const routesPath = path.join(__dirname, 'routes');
 
-fs.readdirSync(routesPath).forEach(categoryFolder => {
-    const categoryPath = path.join(routesPath, categoryFolder);
-    
-    if (fs.statSync(categoryPath).isDirectory()) {
-        fs.readdirSync(categoryPath).forEach(file => {
-            if (file.endsWith('.js')) {
-                const routePath = path.join(categoryPath, file);
-                const routeModule = require(routePath);
+/**
+ * Fungsi rekursif untuk memindai dan memuat rute dari direktori.
+ * @param {string} directory - Path sistem file ke direktori yang akan dipindai.
+ * @param {string} apiPrefix - Prefix URL API yang akan dibangun.
+ */
+function loadRoutesRecursive(directory, apiPrefix) {
+    fs.readdirSync(directory).forEach(item => {
+        const fullPath = path.join(directory, item);
+        
+        if (fs.statSync(fullPath).isDirectory()) {
+            loadRoutesRecursive(fullPath, `${apiPrefix}/${item.toLowerCase()}`);
+        } 
+        else if (item.endsWith('.js')) {
+            const routeModule = require(fullPath);
+            
+            if (routeModule.router && routeModule.category && routeModule.description) {
+                const routeName = path.basename(item, '.js');
+                const apiPath = `${apiPrefix}/${routeName}`;
                 
-                if (routeModule.router && routeModule.category && routeModule.description) {
-                    const routeName = path.basename(file, '.js');
-                    const apiPath = `/api/${categoryFolder.toLowerCase()}/${routeName}`;
-                    
-                    app.use(apiPath, routeModule.router);
-                    
-                    endpoints.push({
-                        path: apiPath,
-                        category: routeModule.category,
-                        description: routeModule.description,
-                    });
+                app.use(apiPath, routeModule.router);
+                
+                endpoints.push({
+                    path: apiPath,
+                    category: routeModule.category,
+                    description: routeModule.description,
+                });
 
-                    console.log(`✅ Rute berhasil dimuat: ${apiPath}`);
-                }
+                console.log(`✅ Rute berhasil dimuat: ${apiPath}`);
             }
-        });
-    }
-});
+        }
+    });
+}
 
-// --- Endpoint Baru untuk Dashboard ---
+const routesPath = path.join(__dirname, 'routes');
+loadRoutesRecursive(routesPath, '/api');
+
+// --- Endpoint untuk Dashboard ---
 app.get('/api/endpoints', (req, res) => {
     res.json(endpoints);
 });
