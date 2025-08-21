@@ -1,43 +1,83 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy API - Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="container">
-        <a href="#" class="brand">Happy API</a>
-        <ul class="nav-menu">
-          <li>
-            <a href="#" class="nav-link active" data-category="all">Semua</a>
-          </li>
-        </ul>
-        <button id="theme-toggle" aria-label="Ubah tema">
-          <i class="fa-solid fa-moon"></i> <span id="theme-text">Gelap</span>
-        </button>
-      </div>
-    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zannbot API - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body class="home-page">
 
-    <header class="hero">
-      <div class="container">
-        <h1>Selamat Datang di Happy API</h1>
-        <p>Kumpulan API sederhana dan menyenangkan untuk proyekmu.</p>
-      </div>
+    <header class="hero-home">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Bangun Proyek Apapun Lebih Cepat</h1>
+                <p>Kumpulan REST API yang dinamis, gratis, dan open-source.</p>
+                <div class="hero-buttons">
+                    <a href="/docs" class="btn-cta">Docs</a>
+                    <a href="https://github.com/RazanMuhammadIkhsan/Happy-Api" target="_blank" class="btn-secondary">GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-body">
+                        <pre><code><span class="method">fetch</span>(<span class="string">'/api/game/susunkata'</span>)
+.then(<span class="arg">res</span> => <span class="arg">res</span>.json())
+.then(<span class="arg">data</span> => {
+  console.log(<span class="arg">data</span>);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="container" id="features-container"></main>
+    <section id="features" class="features-home">
+        <div class="container">
+            <div class="section-title">
+                <span>Fitur Unggulan</span>
+                <h2>Mengapa Menggunakan Happy API?</h2>
+            </div>
+            <div class="feature-grid-home">
+                <div class="feature-card-home">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Dinamis & Otomatis</h3>
+                    <p>Endpoint baru akan otomatis terdaftar dan muncul di dashboard tanpa perlu konfigurasi manual.</p>
+                </div>
+                <div class="feature-card-home">
+                    <div class="icon-wrapper"><i class="fa-solid fa-book"></i></div>
+                    <h3>Dokumentasi Interaktif</h3>
+                    <p>Dashboard berfungsi sebagai dokumentasi live, di mana kamu bisa langsung mencoba setiap endpoint.</p>
+                </div>
+                <div class="feature-card-home">
+                    <div class="icon-wrapper"><i class="fa-solid fa-code-branch"></i></div>
+                    <h3>Open Source</h3>
+                    <p>Sepenuhnya gratis dan open source. Berkontribusi atau gunakan untuk proyek komersial sekalipun.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tech" class="tech-stack">
+        <div class="container">
+            <h3>Dibangun dengan</h3>
+            <div class="logos">
+                <div class="logo-item" title="Node.js"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js"></div>
+                <div class="logo-item" title="Express.js"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express.js"></div>
+                <div class="logo-item" title="Vercel"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original-wordmark.svg" alt="Vercel"></div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
-      <p>&copy; 2025 Happy Api</p>
+        <p>&copy; 2025 Zannbot API. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>

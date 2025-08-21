@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zannbot API - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="brand">Zannbot API</a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <p class="nav-group-title">Navigation</p>
+                    <ul class="nav-menu">
+                        </ul>
+                </div>
+
+                <div class="nav-group">
+                    <p class="nav-group-title">Rest APIs Features</p>
+                    <ul class="nav-menu-features">
+                         </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="theme-toggle" aria-label="Ubah tema">
+                    <i class="fa-solid fa-moon"></i>
+                    <span id="theme-text">Gelap</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="main-header">
+                <button id="mobile-menu-toggle" class="mobile-menu-button" aria-label="Buka menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1>Dashboard</h1>
+            </header>
+
+            <div class="info-bar-container">
+                <div class="info-bar">
+                    <div id="battery-status" class="info-item">
+                        <i class="fa-solid fa-battery-full"></i>
+                        <span>Membaca...</span>
+                    </div>
+                    <div id="ip-address" class="info-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>Membaca...</span>
+                    </div>
+                    <div id="real-time-clock" class="info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>--:--:--</span>
+                    </div>
+                </div>
+            </div>
+
+            <main class="features-container" id="features-container">
+                </main>
+
+            <footer class="footer">
+                <p>&copy; 2025 Zannbot API. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -52,6 +52,10 @@ app.get('/api/endpoints', (req, res) => {
     res.json(endpoints);
 });
 
+app.get('/docs', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'docs.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
